@@ -13,7 +13,7 @@ resource "aws_launch_template" "web_server_as" {
 
 
   resource "aws_elb" "web_server_2b"{
-     name = "web-server-2b
+     name = "web-server-2b"
      security_groups = [aws_security_group.web_server.id]
      subnets = ["subnet-0d18ad490c15f35e5", "subnet-00a7d29eb203c35d0"]
      listener {

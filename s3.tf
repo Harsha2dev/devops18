@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "geezthUiloveumaa256.flm"
+  bucket = "harsha-devops-bucket-12345"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {

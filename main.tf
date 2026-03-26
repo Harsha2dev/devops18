@@ -1,6 +1,6 @@
 resource "aws_launch_template" "web_server_as" {
     name = "newproject1"
-    image_id           = "ami-0b0b78dcacbab728f"
+    image_id           = "ami-02dfbd4ff395f2a1b"
     vpc_security_group_ids = [aws_security_group.web_server.id]
     instance_type = "t3.micro"
     key_name = "one"
@@ -15,7 +15,7 @@ resource "aws_launch_template" "web_server_as" {
   resource "aws_elb" "web_server_22b"{
      name = "web-server-22b"
      security_groups = [aws_security_group.web_server.id]
-     subnets = ["subnet-0d18ad490c15f35e5", "subnet-00a7d29eb203c35d0"]
+     subnets = ["subnet-0706851e90035f4a9", "subnet-0a00fc9448adf0c42"]
      listener {
       instance_port     = 8000
       instance_protocol = "http"
@@ -33,7 +33,7 @@ resource "aws_autoscaling_group" "web_server_asg_devops1" {
     desired_capacity     = 2
     health_check_type    = "EC2"
     load_balancers       = [aws_elb.web_server_22b.name]
-    availability_zones    = ["us-east-2a", "us-east-2b"] 
+    availability_zones    = ["us-east-1a", "us-east-1b"] 
     launch_template {
         id      = aws_launch_template.web_server_as.id
         version = "$Latest"

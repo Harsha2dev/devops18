@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "one" {
-  bucket = "geethUiloveumaa256.flm.monobucket2"
+  bucket = "geezthUiloveumaa256.flm"
 }
 
 resource "aws_s3_bucket_ownership_controls" "two" {
@@ -22,6 +22,15 @@ versioning_configuration {
 status = "Enabled"
 }
 }
+
+terraform {
+backend "s3" {
+region = "us-east-1"
+bucket = "geezthUiloveumaa256.flm"
+key = "prod/terraform.tfstate"
+}
+}
+
 
 
 
